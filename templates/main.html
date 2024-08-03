@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Loan Application</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: "Raleway", sans-serif;
+
+        }
+
+        h6 {
+            color: aliceblue;
+        }
+
+
+        body,
+        html {
+            height: 100%;
+            line-height: 1.8;
+            margin: 0;
+            /* background-color: #f5f5f5; */
+            background: linear-gradient(rgb(147, 112, 219), rgb(70, 130, 180));
+        }
+
+
+
+        .w3-bar .w3-button {
+            padding: 16px;
+        }
+
+        .form-container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            background-color: #251e74cc;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .form-container input[type="text"],
+        .form-container input[type="number"] {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .form-container input[type="submit"] {
+            width: 100%;
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .form-container input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        /* .result {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+            margin: 20px auto;
+        } */
+
+        .container {
+            background: linear-gradient(rgb(147, 112, 219), rgb(70, 130, 180));
+        }
+
+        .result h1 {
+            color: #4CAF50;
+        }
+
+        .result h2 {
+            color: #555;
+        }
+
+        .tit {
+            color: antiquewhite;
+            font-weight: 900;
+        }
+
+        .warning-color {
+            color: rgb(239, 69, 69);
+        }
+
+        .card span {
+            display: block;
+            font-size: 1.5em;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+
+
+        <!-- Navbar (sit on top) -->
+        <div class="w3-top">
+            <div class="w3-bar w3-white w3-card" id="myNavbar">
+                <a href="#home" class="w3-bar-item w3-button w3-wide">Loan Predictor</a>
+                <!-- Right-sided navbar links -->
+                <div class="w3-right w3-hide-small">
+                    <a href="#about" class="w3-bar-item w3-button">ABOUT</a>
+                    <a href="https://github.com/chirdekaran262" class="w3-bar-item w3-button"><i class="fa fa-th"></i>
+                        WORK</a>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSccinxJFcg-gufOMh0DNB3iZyw0dI56J-tLAPvZNaPgD4yvzw/viewform?usp=sf_link"
+                        class="w3-bar-item w3-button"><i class="fa fa-envelope"></i> CONTACT</a>
+                </div>
+                <!-- Hide right-floated links on small screens and replace them with a menu icon -->
+                <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium"
+                    onclick="w3_open()">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- Sidebar on small screens when clicking the menu icon -->
+        <nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large"
+            style="display:none" id="mySidebar">
+            <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Close
+                ×</a>
+            <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button">ABOUT</a>
+            <a href="#work" onclick="w3_close()" class="w3-bar-item w3-button">WORK</a>
+            <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button">CONTACT</a>
+        </nav>
+
+        <!-- Form Section -->
+        <div class="w3-container w3-padding-64 w3-center" id="form-section">
+            <div class="form-container">
+                <h2 class="tit">Loan Application Predictor</h2>
+                <form action="result">
+                    <h5 class="warning-color">Note: Enter Numbric Value</h5>
+                    <h6>Gender</h6> <input type="text" name="Gender" placeholder="Male=1 Female=0" required><br>
+                    <h6>Married</h6> <input type="text" name="Married" placeholder="Yes=1 No=0" required><br>
+                    <h6>Dependents</h6> <input type="text" name="Dependents" placeholder="Dependents if=1 else=0"
+                        required><br>
+                    <h6>Education</h6> <input type="text" name="Education" placeholder="Education if gradute=1 else 0"
+                        required><br>
+                    <h6>Self Employed</h6> <input type="text" name="Self_Employed"
+                        placeholder="Self Employed if yes=1 else 0" required><br>
+                    <h6>Applicant Income</h6> <input type="number" name="ApplicantIncome"
+                        placeholder="Applicant Income ex. 38027" required><br>
+                    <h6>Coapplicant Income</h6> <input type="number" name="CoapplicantIncome"
+                        placeholder="Coapplicant Income ex. 38027" required><br>
+                    <h6>Loan Amount</h6> <input type="number" name="LoanAmount" placeholder="Loan Amount ex. 38027"
+                        required><br>
+                    <h6>Loan Amount Term</h6> <input type="number" name="Loan_Amount_Term"
+                        placeholder="Loan Amount Term ex. 38027" required><br>
+                    <h6>Credit History </h6><input type="number" name="Credit_History"
+                        placeholder="Credit History ex. 38027" required><br>
+                    <h6>Property Area</h6> <input type="text" name="Property_Area"
+                        placeholder="Property Area if urban=1 else 0" required><br>
+                    <input type="submit" value="Submit">
+                </form>
+            </div>
+        </div>
+
+        <!-- Result Section -->
+        <div class="w3-container w3-padding-64 w3-center" id="about">
+            <div class="card">
+                <div class="img"></div>
+                <span>About Me</span>
+                <p class="info">
+                    I’m Karan, As a dedicated computer science student, I have developed a strong foundation in
+                    programming, software development, Web developed. My technical skills encompass Java, Python, and C,
+                    alongside front-end technologies such as HTML, CSS, and JavaScript, Data Science and Machine
+                    Learning.
+                </p>
+                <div class="share">
+                    <a href="https://github.com/chirdekaran262"><svg viewBox="0 0 16 16" class="bi bi-github"
+                            fill="currentColor" height="16" width="16" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z">
+                            </path>
+                        </svg></a>
+                    <a href="https://twitter.com"><svg viewBox="0 0 16 16" class="bi bi-twitter" fill="currentColor"
+                            height="16" width="16" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.676 6.676 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.3 3.3 0 0 0 1.447-1.817 6.573 6.573 0 0 1-2.084.793 3.28 3.28 0 0 0-5.591 2.993A9.321 9.321 0 0 1 1.112 2.1a3.28 3.28 0 0 0 1.015 4.381A3.303 3.303 0 0 1 .64 6.575v.041a3.284 3.284 0 0 0 2.63 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.615-.057 3.283 3.283 0 0 0 3.067 2.278A6.587 6.587 0 0 1 0 13.026a9.29 9.29 0 0 0 5.031 1.475">
+                            </path>
+                        </svg></a>
+                </div>
+                <input action="https://chirdekaran262.github.io" type="button" value="Learn More">
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="w3-center w3-black w3-padding-64">
+            <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
+            <div class="w3-xlarge w3-section">
+                <i href="https://facebook.com/karan.chirde.7" class="fa fa-facebook-official w3-hover-opacity"></i>
+                <i href="https://www.instagram.com/chirde_karan_262/" class="fa fa-instagram w3-hover-opacity"></i>
+                <i href="https://twitter.com/chirdekaran" class="fa fa-twitter w3-hover-opacity"></i>
+                <i href="https://www.linkedin.com/in/karan-chirde-0666ab1aa/"
+                    class="fa fa-linkedin w3-hover-opacity"></i>
+            </div>
+        </footer>
+    </div>
+    <script>
+        // Modal Image Gallery
+        function onClick(element) {
+            document.getElementById("img01").src = element.src;
+            document.getElementById("modal01").style.display = "block";
+            var captionText = document.getElementById("caption");
+            captionText.innerHTML = element.alt;
+        }
+
+        // Toggle between showing and hiding the sidebar when clicking the menu icon
+        var mySidebar = document.getElementById("mySidebar");
+
+        function w3_open() {
+            if (mySidebar.style.display === 'block') {
+                mySidebar.style.display = 'none';
+            } else {
+                mySidebar.style.display = 'block';
+            }
+        }
+
+        // Close the sidebar with the close button
+        function w3_close() {
+            mySidebar.style.display = "none";
+        }
+    </script>
+
+</body>
+
+</html>
